@@ -9,7 +9,9 @@ services:
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "survey"
     volumes:
       - ./data:/var/lib/postgresql/data
+      - ./initdb/:/docker-entrypoint-initdb.d/
 volumes:
   data:
