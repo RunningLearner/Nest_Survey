@@ -31,13 +31,14 @@
 ```bash
 $ cd survey
 $ npm install
-
-$ sudo docker-compose up -d
 ```
 
 ## Running the app
 
 ```bash
+# run postgres 
+$ sudo docker-compose up -d
+
 # development
 $ npm run start
 
