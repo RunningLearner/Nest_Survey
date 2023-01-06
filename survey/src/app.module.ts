@@ -5,6 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { SurveyModule } from './survey/survey.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
@@ -16,6 +17,17 @@ import { SurveyModule } from './survey/survey.module';
       sortSchema: true,
     }),
     SurveyModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'password',
+      database: 'survey',
+      synchronize: true,
+      logging: true,
+      entities: ['dist/**/*.entity.{ts,js}'],
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

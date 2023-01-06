@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateSurveyInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Mutation {
+  createSurvey(createSurveyInput: CreateSurveyInput!): Survey!
+  removeSurvey(id: Int!): Survey!
+  updateSurvey(updateSurveyInput: UpdateSurveyInput!): Survey!
+}
+
+type Query {
+  survey(id: Int!): Survey!
+}
+
+type Survey {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateSurveyInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
