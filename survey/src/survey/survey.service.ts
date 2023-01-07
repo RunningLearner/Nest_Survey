@@ -17,22 +17,23 @@ export class SurveyService {
       title: createSurveyInput.title,
       score: createSurveyInput.score,
     });
-    return 'This action adds a new survey';
+
+    return this.surveyRepository.save(survey);
   }
 
   async findAll() {
     return `This action returns all survey`;
   }
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     return `This action returns a #${id} survey`;
   }
 
-  async update(id: string, updateSurveyInput: UpdateSurveyInput) {
+  async update(id: number, updateSurveyInput: UpdateSurveyInput) {
     return `This action updates a #${id} survey`;
   }
 
-  async remove(id: string) {
+  async remove(id: number) {
     return `This action removes a #${id} survey`;
   }
 }

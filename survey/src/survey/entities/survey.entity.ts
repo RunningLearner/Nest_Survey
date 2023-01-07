@@ -6,7 +6,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Survey {
   @Field(() => ID)
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Field(() => String)
   @Column()

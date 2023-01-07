@@ -21,7 +21,7 @@ export class SurveyResolver {
   }
 
   @Query(() => Survey, { name: 'survey' })
-  findOne(@Args('id', { type: () => Int }) id: string) {
+  findOne(@Args('id', { type: () => Int }) id: number) {
     return this.surveyService.findOne(id);
   }
 
@@ -33,7 +33,7 @@ export class SurveyResolver {
   }
 
   @Mutation(() => Survey)
-  removeSurvey(@Args('id', { type: () => Int }) id: string) {
+  removeSurvey(@Args('id', { type: () => Int }) id: number) {
     return this.surveyService.remove(id);
   }
 }
