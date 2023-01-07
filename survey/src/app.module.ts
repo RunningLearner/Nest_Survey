@@ -6,6 +6,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { SurveyModule } from './survey/survey.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Survey } from './survey/entities/survey.entity';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'survey',
       synchronize: true,
       logging: true,
-      entities: ['dist/**/*.entity.{ts,js}'],
+      entities: [Survey],
     }),
   ],
   controllers: [AppController],

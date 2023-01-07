@@ -3,8 +3,9 @@
 # ------------------------------------------------------
 
 input CreateSurveyInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  id: ID!
+  score: Int!
+  title: String!
 }
 
 type Mutation {
@@ -18,12 +19,13 @@ type Query {
 }
 
 type Survey {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  id: ID!
+  score: Int!
+  title: String!
 }
 
 input UpdateSurveyInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  id: ID!
+  score: Int!
+  title: String!
 }

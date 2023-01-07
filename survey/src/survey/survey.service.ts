@@ -1,26 +1,38 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateSurveyInput } from './dto/create-survey.input';
 import { UpdateSurveyInput } from './dto/update-survey.input';
+import { Survey } from './entities/survey.entity';
 
 @Injectable()
 export class SurveyService {
-  create(createSurveyInput: CreateSurveyInput) {
+  constructor(
+    @InjectRepository(Survey) private surveyRepository: Repository<Survey>,
+  ) {}
+
+  async create(createSurveyInput: CreateSurveyInput) {
+    const survey = await this.surveyRepository.create({
+      id: createSurveyInput.id,
+      title: createSurveyInput.title,
+      score: createSurveyInput.score,
+    });
     return 'This action adds a new survey';
   }
 
-  findAll() {
+  async findAll() {
     return `This action returns all survey`;
   }
 
-  findOne(id: number) {
+  async findOne(id: string) {
     return `This action returns a #${id} survey`;
   }
 
-  update(id: number, updateSurveyInput: UpdateSurveyInput) {
+  async update(id: string, updateSurveyInput: UpdateSurveyInput) {
     return `This action updates a #${id} survey`;
   }
 
-  remove(id: number) {
+  async remove(id: string) {
     return `This action removes a #${id} survey`;
   }
 }
