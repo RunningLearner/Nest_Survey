@@ -3,18 +3,18 @@
 # ------------------------------------------------------
 
 input CreateSurveyInput {
-  id: ID!
   title: String!
 }
 
 type Mutation {
   createSurvey(createSurveyInput: CreateSurveyInput!): Survey!
-  removeSurvey(id: Int!): Survey!
+  removeSurvey(id: Int!): String!
   updateSurvey(updateSurveyInput: UpdateSurveyInput!): Survey!
 }
 
 type Query {
-  survey(id: Int!): Survey!
+  findAll: [Survey!]!
+  findOne(id: Int!): Survey!
 }
 
 type Survey {
@@ -25,6 +25,5 @@ type Survey {
 
 input UpdateSurveyInput {
   id: ID!
-  score: Int!
   title: String!
 }

@@ -13,7 +13,6 @@ export class SurveyService {
 
   async create(createSurveyInput: CreateSurveyInput) {
     const survey = await this.surveyRepository.create({
-      id: createSurveyInput.id,
       title: createSurveyInput.title,
     });
 
@@ -21,18 +20,26 @@ export class SurveyService {
   }
 
   async findAll() {
-    return `This action returns all survey`;
+    return await this.surveyRepository.find();
   }
 
   async findOne(id: number) {
-    return `This action returns a #${id} survey`;
+    const survey = await this.surveyRepository.findOneBy({ id });
+    return survey;
   }
 
   async update(id: number, updateSurveyInput: UpdateSurveyInput) {
-    return `This action updates a #${id} survey`;
+    await this.surveyRepository.update(id, updateSurveyInput);
+    const survey = await this.surveyRepository.findOneBy({ id });
+    return survey;
   }
 
   async remove(id: number) {
-    return `This action removes a #${id} survey`;
+    try {
+      await this.surveyRepository.delete(id);
+      return `$Survey {id} is deleted successfully`;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

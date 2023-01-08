@@ -15,12 +15,12 @@ export class SurveyResolver {
     return this.surveyService.create(createSurveyInput);
   }
 
-  @Query(() => [Survey], { name: 'survey' })
+  @Query(() => [Survey])
   findAll() {
     return this.surveyService.findAll();
   }
 
-  @Query(() => Survey, { name: 'survey' })
+  @Query(() => Survey)
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.surveyService.findOne(id);
   }
@@ -32,7 +32,7 @@ export class SurveyResolver {
     return this.surveyService.update(updateSurveyInput.id, updateSurveyInput);
   }
 
-  @Mutation(() => Survey)
+  @Mutation(() => String)
   removeSurvey(@Args('id', { type: () => Int }) id: number) {
     return this.surveyService.remove(id);
   }

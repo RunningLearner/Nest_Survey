@@ -8,7 +8,4 @@ export class UpdateSurveyInput extends PartialType(CreateSurveyInput) {
 
   @Field(() => String)
   title: string;
-
-  @Field(() => Int)
-  score: number;
 }
