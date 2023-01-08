@@ -7,6 +7,8 @@ import { join } from 'path';
 import { SurveyModule } from './survey/survey.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Survey } from './survey/entities/survey.entity';
+import { QuestionModule } from './question/question.module';
+import { Question } from './question/entities/question.entity';
 
 @Module({
   imports: [
@@ -27,8 +29,9 @@ import { Survey } from './survey/entities/survey.entity';
       database: 'survey',
       synchronize: true,
       logging: true,
-      entities: [Survey],
+      entities: [Survey, Question],
     }),
+    QuestionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

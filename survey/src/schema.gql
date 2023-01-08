@@ -2,25 +2,55 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateQuestionInput {
+  """question"""
+  question: String!
+  surveyId: ID!
+}
+
 input CreateSurveyInput {
   title: String!
 }
 
 type Mutation {
+  createQuestion(createQuestionInput: CreateQuestionInput!): Question!
   createSurvey(createSurveyInput: CreateSurveyInput!): Survey!
+  removeQuestion(id: Int!): String!
   removeSurvey(id: Int!): String!
+  updateQuestion(updateQuestionInput: UpdateQuestionInput!): Question!
   updateSurvey(updateSurveyInput: UpdateSurveyInput!): Survey!
 }
 
 type Query {
   findAll: [Survey!]!
   findOne(id: Int!): Survey!
+  question(id: Int!): Question!
+}
+
+type Question {
+  choices: Int!
+  id: ID!
+  question: String!
+  survey: Survey!
+  surveyId: ID!
 }
 
 type Survey {
   id: ID!
+  questions: Question!
   score: Int!
   title: String!
+}
+
+input UpdateQuestionInput {
+  id: Int!
+
+  """question"""
+  question: String
+
+  """question"""
+  qusetion: String!
+  surveyId: ID
 }
 
 input UpdateSurveyInput {

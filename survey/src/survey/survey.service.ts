@@ -37,7 +37,7 @@ export class SurveyService {
   async remove(id: number) {
     try {
       await this.surveyRepository.delete(id);
-      return `$Survey {id} is deleted successfully`;
+      return `Survey ${id} is deleted successfully`;
     } catch (error) {
       console.log(error);
     }
