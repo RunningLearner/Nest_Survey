@@ -5,7 +5,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 @ObjectType()
 @Entity()
 export class Survey {
-  @Field(() => ID)
+  @Field()
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -17,7 +17,7 @@ export class Survey {
   @Column({ default: 0 })
   score: number;
 
-  @Field(() => Question)
+  @Field(() => [Question], { nullable: true })
   @OneToMany(() => Question, (question) => question.survey)
   questions: Question[];
 }

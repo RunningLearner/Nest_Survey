@@ -20,11 +20,20 @@ export class SurveyService {
   }
 
   async findAll() {
-    return await this.surveyRepository.find();
+    const survey = await this.surveyRepository.find({
+      relations: ['questions'],
+    });
+    console.log(survey);
+    return survey;
   }
 
   async findOne(id: number) {
-    const survey = await this.surveyRepository.findOneBy({ id });
+    const survey = await this.surveyRepository.findOne({
+      where: { id },
+      relations: { questions: true },
+    });
+    console.log(survey);
+
     return survey;
   }
 

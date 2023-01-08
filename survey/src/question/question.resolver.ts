@@ -15,13 +15,13 @@ export class QuestionResolver {
     return this.questionService.create(createQuestionInput);
   }
 
-  @Query(() => [Question], { name: 'question' })
-  findAll() {
+  @Query(() => [Question])
+  findAllQuestions() {
     return this.questionService.findAll();
   }
 
-  @Query(() => Question, { name: 'question' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  @Query(() => Question)
+  findOneQuestion(@Args('id', { type: () => Int }) id: number) {
     return this.questionService.findOne(id);
   }
 

@@ -26,6 +26,7 @@ export class QuestionService {
 
   async findOne(id: number) {
     const question = await this.questionRepository.findOneBy({ id });
+    console.log(question);
     return question;
   }
 

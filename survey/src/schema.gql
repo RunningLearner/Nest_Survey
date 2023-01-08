@@ -23,21 +23,22 @@ type Mutation {
 
 type Query {
   findAll: [Survey!]!
+  findAllQuestions: [Question!]!
   findOne(id: Int!): Survey!
-  question(id: Int!): Question!
+  findOneQuestion(id: Int!): Question!
 }
 
 type Question {
-  choices: Int!
-  id: ID!
+  choices: Int
+  id: Float!
   question: String!
   survey: Survey!
-  surveyId: ID!
+  surveyId: Float!
 }
 
 type Survey {
-  id: ID!
-  questions: Question!
+  id: Float!
+  questions: [Question!]
   score: Int!
   title: String!
 }

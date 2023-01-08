@@ -5,7 +5,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 @ObjectType()
 @Entity()
 export class Question {
-  @Field(() => ID)
+  @Field()
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -13,7 +13,7 @@ export class Question {
   @Column()
   question: string;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   @Column({ nullable: true })
   choices: number;
 
@@ -21,7 +21,7 @@ export class Question {
   @ManyToOne(() => Survey, (survey) => survey.questions)
   survey: Survey;
 
-  @Field(() => ID)
+  @Field()
   @Column()
   surveyId: number;
 }
