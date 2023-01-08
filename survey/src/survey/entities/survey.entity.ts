@@ -13,6 +13,6 @@ export class Survey {
   title: string;
 
   @Field(() => Int)
-  @Column()
+  @Column({ default: 0 })
   score: number;
 }

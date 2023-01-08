@@ -15,7 +15,6 @@ export class SurveyService {
     const survey = await this.surveyRepository.create({
       id: createSurveyInput.id,
       title: createSurveyInput.title,
-      score: createSurveyInput.score,
     });
 
     return this.surveyRepository.save(survey);

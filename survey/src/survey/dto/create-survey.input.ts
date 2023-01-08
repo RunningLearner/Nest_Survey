@@ -7,7 +7,4 @@ export class CreateSurveyInput {
 
   @Field(() => String)
   title: string;
-
-  @Field(() => Int)
-  score: number;
 }
