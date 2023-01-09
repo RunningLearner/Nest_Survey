@@ -2,9 +2,12 @@ import { InputType, Int, Field, ID } from '@nestjs/graphql';
 
 @InputType()
 export class CreateQuestionInput {
-  @Field(() => String, { description: 'question' })
+  @Field(() => String)
   question: string;
 
   @Field(() => ID)
   surveyId: number;
+
+  @Field(() => Int)
+  score: number;
 }

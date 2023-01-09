@@ -13,10 +13,6 @@ export class Survey {
   @Column()
   title: string;
 
-  @Field(() => Int)
-  @Column({ default: 0 })
-  score: number;
-
   @Field(() => [Question], { nullable: true })
   @OneToMany(() => Question, (question) => question.survey)
   questions: Question[];

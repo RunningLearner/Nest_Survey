@@ -9,6 +9,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Survey } from './survey/entities/survey.entity';
 import { QuestionModule } from './question/question.module';
 import { Question } from './question/entities/question.entity';
+import { ChoiceModule } from './choice/choice.module';
+import { Choice } from './choice/entities/choice.entity';
 
 @Module({
   imports: [
@@ -29,9 +31,10 @@ import { Question } from './question/entities/question.entity';
       database: 'survey',
       synchronize: true,
       logging: true,
-      entities: [Survey, Question],
+      entities: [Survey, Question, Choice],
     }),
     QuestionModule,
+    ChoiceModule,
   ],
   controllers: [AppController],
   providers: [AppService],

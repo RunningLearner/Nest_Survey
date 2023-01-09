@@ -16,6 +16,7 @@ export class QuestionService {
     const question = await this.questionRepository.create({
       question: createQuestionInput.question,
       surveyId: createQuestionInput.surveyId,
+      score: createQuestionInput.score,
     });
     return this.questionRepository.save(question);
   }
@@ -26,7 +27,6 @@ export class QuestionService {
 
   async findOne(id: number) {
     const question = await this.questionRepository.findOneBy({ id });
-    console.log(question);
     return question;
   }
 

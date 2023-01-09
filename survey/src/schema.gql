@@ -2,9 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Choice {
+  choice: String
+  id: Float!
+  question: Question!
+  questionId: Float!
+}
+
+input CreateChoiceInput {
+  choice: String!
+  questionId: ID!
+}
+
 input CreateQuestionInput {
-  """question"""
   question: String!
+  score: Int!
   surveyId: ID!
 }
 
@@ -13,25 +25,31 @@ input CreateSurveyInput {
 }
 
 type Mutation {
+  createChoice(createChoiceInput: CreateChoiceInput!): Choice!
   createQuestion(createQuestionInput: CreateQuestionInput!): Question!
   createSurvey(createSurveyInput: CreateSurveyInput!): Survey!
+  removeChoice(id: Int!): Choice!
   removeQuestion(id: Int!): String!
   removeSurvey(id: Int!): String!
+  updateChoice(updateChoiceInput: UpdateChoiceInput!): Choice!
   updateQuestion(updateQuestionInput: UpdateQuestionInput!): Question!
   updateSurvey(updateSurveyInput: UpdateSurveyInput!): Survey!
 }
 
 type Query {
   findAll: [Survey!]!
+  findAllChoices: [Choice!]!
   findAllQuestions: [Question!]!
   findOne(id: Int!): Survey!
+  findOneChoice(id: Int!): Choice!
   findOneQuestion(id: Int!): Question!
 }
 
 type Question {
-  choices: Int
+  choices: [Choice!]
   id: Float!
-  question: String!
+  question: String
+  score: Int
   survey: Survey!
   surveyId: Float!
 }
@@ -39,18 +57,20 @@ type Question {
 type Survey {
   id: Float!
   questions: [Question!]
-  score: Int!
   title: String!
+}
+
+input UpdateChoiceInput {
+  choice: String
+  id: Int!
+  questionId: ID
 }
 
 input UpdateQuestionInput {
   id: Int!
-
-  """question"""
   question: String
-
-  """question"""
-  qusetion: String!
+  qusetion: String
+  score: Int
   surveyId: ID
 }
 
