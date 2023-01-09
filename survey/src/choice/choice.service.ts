@@ -15,6 +15,7 @@ export class ChoiceService {
     const choice = await this.choiceRepository.create({
       choice: createChoiceInput.choice,
       questionId: createChoiceInput.questionId,
+      number: createChoiceInput.number,
     });
     return this.choiceRepository.save(choice);
   }

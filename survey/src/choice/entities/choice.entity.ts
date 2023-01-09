@@ -9,9 +9,13 @@ export class Choice {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Field(() => String, { nullable: true })
-  @Column({ nullable: true })
+  @Field(() => String)
+  @Column()
   choice: string;
+
+  @Field()
+  @Column()
+  number: number;
 
   // @Field(() => Boolean, { nullable: true })
   // @Column({ nullable: true })

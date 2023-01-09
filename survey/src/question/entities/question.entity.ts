@@ -20,9 +20,13 @@ export class Question {
   @Column({ nullable: true })
   question: string;
 
+  @Field(() => Int)
+  @Column()
+  score: number;
+
   @Field(() => Int, { nullable: true })
   @Column({ nullable: true })
-  score: number;
+  answer: number;
 
   @Field(() => [Choice], { nullable: true })
   @OneToMany(() => Choice, (choice) => choice.question)

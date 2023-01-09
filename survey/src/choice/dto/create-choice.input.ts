@@ -5,6 +5,9 @@ export class CreateChoiceInput {
   @Field(() => String)
   choice: string;
 
+  @Field()
+  number: number;
+
   @Field(() => ID)
   questionId: number;
 }

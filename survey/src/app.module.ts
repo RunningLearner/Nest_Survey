@@ -11,6 +11,7 @@ import { QuestionModule } from './question/question.module';
 import { Question } from './question/entities/question.entity';
 import { ChoiceModule } from './choice/choice.module';
 import { Choice } from './choice/entities/choice.entity';
+import { AnswerModule } from './answer/answer.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { Choice } from './choice/entities/choice.entity';
     }),
     QuestionModule,
     ChoiceModule,
+    AnswerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
