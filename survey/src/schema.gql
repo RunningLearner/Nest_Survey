@@ -2,11 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Answer {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
-
 type Choice {
   choice: String!
   id: Float!
@@ -37,22 +32,22 @@ input CreateSurveyInput {
 }
 
 type Mutation {
-  createAnswer(createAnswerInput: CreateAnswerInput!): Answer!
+  createAnswer(createAnswerInput: CreateAnswerInput!): Choice!
   createChoice(createChoiceInput: CreateChoiceInput!): Choice!
   createQuestion(createQuestionInput: CreateQuestionInput!): Question!
   createSurvey(createSurveyInput: CreateSurveyInput!): Survey!
-  removeAnswer(id: Int!): Answer!
+  removeAnswer(id: Int!): Choice!
   removeChoice(id: Int!): Choice!
   removeQuestion(id: Int!): String!
   removeSurvey(id: Int!): String!
-  updateAnswer(updateAnswerInput: UpdateAnswerInput!): Answer!
+  updateAnswer(updateAnswerInput: UpdateAnswerInput!): Choice!
   updateChoice(updateChoiceInput: UpdateChoiceInput!): Choice!
   updateQuestion(updateQuestionInput: UpdateQuestionInput!): Question!
   updateSurvey(updateSurveyInput: UpdateSurveyInput!): Survey!
 }
 
 type Query {
-  answer(id: Int!): Answer!
+  answer(id: Int!): Choice!
   findAll: [Survey!]!
   findAllChoices: [Choice!]!
   findAllQuestions: [Question!]!
