@@ -20,6 +20,12 @@ export class SurveyResolver {
     return this.surveyService.findAll();
   }
 
+  //완료된 설문지 목록 반환
+  @Query(() => [Survey])
+  findFinishedSurveys() {
+    return this.surveyService.findFinishedSurveys();
+  }
+
   @Query(() => Survey)
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.surveyService.findOne(id);

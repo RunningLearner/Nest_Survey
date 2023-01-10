@@ -57,6 +57,7 @@ type Query {
   findAllAnswers: [Answer!]!
   findAllChoices: [Choice!]!
   findAllQuestions: [Question!]!
+  findFinishedSurveys: [Survey!]!
   findOne(id: Int!): Survey!
   findOneAnswer(id: Int!): Answer!
   findOneChoice(id: Int!): Choice!

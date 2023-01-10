@@ -31,6 +31,25 @@ export class SurveyService {
     return survey;
   }
 
+  async findFinishedSurveys() {
+    const survey = await this.findAll();
+
+    // 모든 문항에 적어도 하나의 답이 제출되었고 설문지에 하나이상의 문항이 있는 설문지들
+    const filteredSurvey = survey.filter((each) => {
+      return (
+        each.questions.filter((question) => {
+          return (
+            question.choices.filter((choice) => {
+              return choice.answers.length !== 0;
+            }).length !== 0
+          );
+        }).length == each.questions.length && each.questions.length > 0
+      );
+    });
+    console.log('filteredSurvey::', filteredSurvey);
+    return filteredSurvey;
+  }
+
   async findOne(id: number) {
     const survey = await this.surveyRepository.findOne({
       where: { id },
