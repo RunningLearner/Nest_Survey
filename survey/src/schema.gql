@@ -28,6 +28,7 @@ input CreateChoiceInput {
 }
 
 input CreateQuestionInput {
+  answer: Int!
   question: String!
   score: Int!
   surveyId: ID!
@@ -65,7 +66,7 @@ type Query {
 }
 
 type Question {
-  answer: Int
+  answer: Int!
   choices: [Choice!]
   id: Float!
   question: String
@@ -93,6 +94,7 @@ input UpdateChoiceInput {
 }
 
 input UpdateQuestionInput {
+  answer: Int
   id: Int!
   question: String
   qusetion: String

@@ -9,5 +9,8 @@ export class CreateQuestionInput {
   surveyId: number;
 
   @Field(() => Int)
+  answer: number;
+
+  @Field(() => Int)
   score: number;
 }

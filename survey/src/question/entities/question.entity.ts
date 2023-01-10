@@ -24,8 +24,8 @@ export class Question {
   @Column()
   score: number;
 
-  @Field(() => Int, { nullable: true })
-  @Column({ nullable: true })
+  @Field(() => Int)
+  @Column()
   answer: number;
 
   @Field(() => [Choice], { nullable: true })
