@@ -24,10 +24,6 @@ export class Choice {
   @Column()
   number: number;
 
-  // @Field(() => Boolean, { nullable: true })
-  // @Column({ nullable: true })
-  // checked: boolean;
-
   @Field(() => Question)
   @ManyToOne(() => Question, (question) => question.choices)
   question: Question;

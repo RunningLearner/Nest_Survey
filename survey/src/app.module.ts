@@ -12,7 +12,7 @@ import { Question } from './question/entities/question.entity';
 import { ChoiceModule } from './choice/choice.module';
 import { Choice } from './choice/entities/choice.entity';
 import { AnswerModule } from './answer/answer.module';
-import { AnswerModule } from './answer/answer.module';
+import { Answer } from './answer/entities/answer.entity';
 
 @Module({
   imports: [
@@ -33,7 +33,7 @@ import { AnswerModule } from './answer/answer.module';
       database: 'survey',
       synchronize: true,
       logging: true,
-      entities: [Survey, Question, Choice],
+      entities: [Survey, Question, Choice, Answer],
     }),
     QuestionModule,
     ChoiceModule,

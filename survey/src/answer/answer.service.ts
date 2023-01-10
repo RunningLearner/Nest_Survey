@@ -1,26 +1,47 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateAnswerInput } from './dto/create-answer.input';
 import { UpdateAnswerInput } from './dto/update-answer.input';
+import { Answer } from './entities/answer.entity';
 
 @Injectable()
 export class AnswerService {
-  create(createAnswerInput: CreateAnswerInput) {
-    return 'This action adds a new answer';
+  constructor(
+    @InjectRepository(Answer)
+    private answerRepository: Repository<Answer>,
+  ) {}
+
+  async create(createAnswerInput: CreateAnswerInput) {
+    const answer = await this.answerRepository.create({
+      choiceId: createAnswerInput.choiceId,
+    });
+    return this.answerRepository.save(answer);
   }
 
-  findAll() {
-    return `This action returns all answer`;
+  async findAll() {
+    return await this.answerRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} answer`;
+  async findOne(id: number) {
+    const answer = await this.answerRepository.findOne({
+      where: { id },
+    });
+    return answer;
   }
 
-  update(id: number, updateAnswerInput: UpdateAnswerInput) {
-    return `This action updates a #${id} answer`;
+  async update(id: number, updateAnswerInput: UpdateAnswerInput) {
+    await this.answerRepository.update(id, updateAnswerInput);
+    const choice = await this.answerRepository.findOneBy({ id });
+    return choice;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} answer`;
+  async remove(id: number) {
+    try {
+      await this.answerRepository.delete(id);
+      return `Answer ${id} is deleted successfully`;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

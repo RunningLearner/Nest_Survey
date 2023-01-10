@@ -21,11 +21,14 @@ export class ChoiceService {
   }
 
   async findAll() {
-    return await this.choiceRepository.find();
+    return await this.choiceRepository.find({ relations: ['answer'] });
   }
 
   async findOne(id: number) {
-    const choice = await this.choiceRepository.findOneBy({ id });
+    const choice = await this.choiceRepository.findOne({
+      where: { id },
+      relations: ['answer'],
+    });
     return choice;
   }
 

@@ -22,13 +22,15 @@ export class QuestionService {
   }
 
   async findAll() {
-    return await this.questionRepository.find({ relations: ['choices'] });
+    return await this.questionRepository.find({
+      relations: ['choices', 'choices.answers'],
+    });
   }
 
   async findOne(id: number) {
     const question = await this.questionRepository.findOne({
       where: { id },
-      relations: { choices: true },
+      relations: ['choices', 'choices.answers'],
     });
     return question;
   }
