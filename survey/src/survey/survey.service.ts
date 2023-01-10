@@ -21,7 +21,11 @@ export class SurveyService {
 
   async findAll() {
     const survey = await this.surveyRepository.find({
-      relations: ['questions', 'questions.choices'],
+      relations: [
+        'questions',
+        'questions.choices',
+        'questions.choices.answers',
+      ],
     });
     console.log(survey);
     return survey;
@@ -30,7 +34,11 @@ export class SurveyService {
   async findOne(id: number) {
     const survey = await this.surveyRepository.findOne({
       where: { id },
-      relations: ['questions', 'questions.choices'],
+      relations: [
+        'questions',
+        'questions.choices',
+        'questions.choices.answers',
+      ],
     });
     console.log(survey);
 

@@ -2,7 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Answer {
+  choice: Choice!
+  choiceId: Float!
+  id: Float!
+}
+
 type Choice {
+  answers: [Answer!]
   choice: String!
   id: Float!
   number: Float!
@@ -11,8 +18,7 @@ type Choice {
 }
 
 input CreateAnswerInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  choiceId: Float!
 }
 
 input CreateChoiceInput {
@@ -32,26 +38,27 @@ input CreateSurveyInput {
 }
 
 type Mutation {
-  createAnswer(createAnswerInput: CreateAnswerInput!): Choice!
+  createAnswer(createAnswerInput: CreateAnswerInput!): Answer!
   createChoice(createChoiceInput: CreateChoiceInput!): Choice!
   createQuestion(createQuestionInput: CreateQuestionInput!): Question!
   createSurvey(createSurveyInput: CreateSurveyInput!): Survey!
-  removeAnswer(id: Int!): Choice!
+  removeAnswer(id: Int!): Answer!
   removeChoice(id: Int!): Choice!
   removeQuestion(id: Int!): String!
   removeSurvey(id: Int!): String!
-  updateAnswer(updateAnswerInput: UpdateAnswerInput!): Choice!
+  updateAnswer(updateAnswerInput: UpdateAnswerInput!): Answer!
   updateChoice(updateChoiceInput: UpdateChoiceInput!): Choice!
   updateQuestion(updateQuestionInput: UpdateQuestionInput!): Question!
   updateSurvey(updateSurveyInput: UpdateSurveyInput!): Survey!
 }
 
 type Query {
-  answer(id: Int!): Choice!
   findAll: [Survey!]!
+  findAllAnswers: [Answer!]!
   findAllChoices: [Choice!]!
   findAllQuestions: [Question!]!
   findOne(id: Int!): Survey!
+  findOneAnswer(id: Int!): Answer!
   findOneChoice(id: Int!): Choice!
   findOneQuestion(id: Int!): Question!
 }
@@ -73,8 +80,7 @@ type Survey {
 }
 
 input UpdateAnswerInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  choiceId: Float!
   id: Int!
 }
 
