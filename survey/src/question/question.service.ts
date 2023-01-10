@@ -17,6 +17,7 @@ export class QuestionService {
       question: createQuestionInput.question,
       surveyId: createQuestionInput.surveyId,
       score: createQuestionInput.score,
+      answer: createQuestionInput.answer,
     });
     return this.questionRepository.save(question);
   }

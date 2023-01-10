@@ -27,7 +27,7 @@ export class SurveyService {
         'questions.choices.answers',
       ],
     });
-    console.log(survey);
+    // console.log(survey);
     return survey;
   }
 
@@ -46,8 +46,28 @@ export class SurveyService {
         }).length == each.questions.length && each.questions.length > 0
       );
     });
-    console.log('filteredSurvey::', filteredSurvey);
+
+    filteredSurvey.map(async (survey) => {
+      const totalScore = await this.correctSurvey(survey);
+      survey.totalScore = totalScore;
+    });
+    console.log('filteredSurvey:::::', filteredSurvey);
     return filteredSurvey;
+  }
+
+  // 완료된 설문지 채점
+  async correctSurvey(survey: Survey) {
+    let totalScore = 0;
+
+    for (const question of survey.questions) {
+      for (const choice of question.choices) {
+        if (choice.answers.length > 0 && choice.number == question.answer) {
+          totalScore += question.score;
+          break;
+        }
+      }
+    }
+    return totalScore;
   }
 
   async findOne(id: number) {

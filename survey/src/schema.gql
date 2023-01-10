@@ -79,6 +79,7 @@ type Survey {
   id: Float!
   questions: [Question!]
   title: String!
+  totalScore: Int
 }
 
 input UpdateAnswerInput {
