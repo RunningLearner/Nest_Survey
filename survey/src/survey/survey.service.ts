@@ -27,32 +27,31 @@ export class SurveyService {
         'questions.choices.answers',
       ],
     });
-    // console.log(survey);
+    return survey;
+  }
+
+  async finishSurvey(id: number) {
+    await this.surveyRepository.update(id, { finished: true });
+    const survey = await this.surveyRepository.findOneBy({ id });
     return survey;
   }
 
   async findFinishedSurveys() {
-    const survey = await this.findAll();
-
-    // 모든 문항에 적어도 하나의 답이 제출되었고 설문지에 하나이상의 문항이 있는 설문지들
-    const filteredSurvey = survey.filter((each) => {
-      return (
-        each.questions.filter((question) => {
-          return (
-            question.choices.filter((choice) => {
-              return choice.answers.length !== 0;
-            }).length !== 0
-          );
-        }).length == each.questions.length && each.questions.length > 0
-      );
+    const finishedSurvey = await this.surveyRepository.find({
+      where: { finished: true },
+      relations: [
+        'questions',
+        'questions.choices',
+        'questions.choices.answers',
+      ],
     });
 
-    filteredSurvey.map(async (survey) => {
+    finishedSurvey.map(async (survey) => {
       const totalScore = await this.correctSurvey(survey);
       survey.totalScore = totalScore;
     });
-    console.log('filteredSurvey:::::', filteredSurvey);
-    return filteredSurvey;
+    console.log('finishedSurvey:::::', finishedSurvey);
+    return finishedSurvey;
   }
 
   // 완료된 설문지 채점

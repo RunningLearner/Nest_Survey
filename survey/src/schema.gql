@@ -43,6 +43,7 @@ type Mutation {
   createChoice(createChoiceInput: CreateChoiceInput!): Choice!
   createQuestion(createQuestionInput: CreateQuestionInput!): Question!
   createSurvey(createSurveyInput: CreateSurveyInput!): Survey!
+  finishSurvey(surveyId: Float!): Survey!
   removeAnswer(id: Int!): Answer!
   removeChoice(id: Int!): Choice!
   removeQuestion(id: Int!): String!
@@ -76,6 +77,7 @@ type Question {
 }
 
 type Survey {
+  finished: Boolean!
   id: Float!
   questions: [Question!]
   title: String!

@@ -13,6 +13,10 @@ export class Survey {
   @Column()
   title: string;
 
+  @Field(() => Boolean)
+  @Column({ default: false })
+  finished: boolean;
+
   @Field(() => Int, { nullable: true })
   @Column({ nullable: true, default: 0 })
   totalScore: number;

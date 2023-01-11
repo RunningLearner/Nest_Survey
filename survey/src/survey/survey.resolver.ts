@@ -26,6 +26,12 @@ export class SurveyResolver {
     return this.surveyService.findFinishedSurveys();
   }
 
+  //완료된 설문지 목록 반환
+  @Mutation(() => Survey)
+  finishSurvey(@Args('surveyId') surveyId: number) {
+    return this.surveyService.finishSurvey(surveyId);
+  }
+
   @Query(() => Survey)
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.surveyService.findOne(id);
