@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Survey } from 'src/survey/entities/survey.entity';
 import { Repository } from 'typeorm';
 import { CreateAnswerInput } from './dto/create-answer.input';
 import { UpdateAnswerInput } from './dto/update-answer.input';
@@ -10,9 +11,17 @@ export class AnswerService {
   constructor(
     @InjectRepository(Answer)
     private answerRepository: Repository<Answer>,
+    @InjectRepository(Survey)
+    private surveyRepository: Repository<Survey>,
   ) {}
 
   async create(createAnswerInput: CreateAnswerInput) {
+    const survey = await this.surveyRepository.findOneBy({
+      id: createAnswerInput.surveyId,
+    });
+    if (survey.finished) {
+      return `이미 완료된 설문지 입니다.`;
+    }
     const answer = await this.answerRepository.create({
       choiceId: createAnswerInput.choiceId,
     });

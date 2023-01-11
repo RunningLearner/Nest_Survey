@@ -19,6 +19,7 @@ type Choice {
 
 input CreateAnswerInput {
   choiceId: Float!
+  surveyId: Float!
 }
 
 input CreateChoiceInput {
@@ -87,6 +88,7 @@ type Survey {
 input UpdateAnswerInput {
   choiceId: Float!
   id: Int!
+  surveyId: Float
 }
 
 input UpdateChoiceInput {
