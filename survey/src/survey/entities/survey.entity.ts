@@ -10,7 +10,7 @@ export class Survey {
   id: number;
 
   @Field(() => String)
-  @Column()
+  @Column({ unique: true })
   title: string;
 
   @Field(() => Boolean)

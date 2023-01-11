@@ -56,15 +56,15 @@ type Mutation {
 }
 
 type Query {
-  findAll: [Survey!]!
   findAllAnswers: [Answer!]!
   findAllChoices: [Choice!]!
   findAllQuestions: [Question!]!
+  findAllSurveys: [Survey!]!
   findFinishedSurveys: [Survey!]!
-  findOne(id: Int!): Survey!
   findOneAnswer(id: Int!): Answer!
   findOneChoice(id: Int!): Choice!
   findOneQuestion(id: Int!): Question!
+  findOneSurvey(id: Int!): Survey!
 }
 
 type Question {

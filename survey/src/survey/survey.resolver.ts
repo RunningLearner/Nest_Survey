@@ -16,8 +16,8 @@ export class SurveyResolver {
   }
 
   @Query(() => [Survey])
-  findAll() {
-    return this.surveyService.findAll();
+  findAllSurveys() {
+    return this.surveyService.findAllSurveys();
   }
 
   //완료된 설문지 목록 반환
@@ -33,8 +33,8 @@ export class SurveyResolver {
   }
 
   @Query(() => Survey)
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.surveyService.findOne(id);
+  findOneSurvey(@Args('id', { type: () => Int }) id: number) {
+    return this.surveyService.findOneSurvey(id);
   }
 
   @Mutation(() => Survey)

@@ -19,7 +19,7 @@ export class SurveyService {
     return this.surveyRepository.save(survey);
   }
 
-  async findAll() {
+  async findAllSurveys() {
     const survey = await this.surveyRepository.find({
       relations: [
         'questions',
@@ -77,7 +77,7 @@ export class SurveyService {
     return totalScore;
   }
 
-  async findOne(id: number) {
+  async findOneSurvey(id: number) {
     const survey = await this.surveyRepository.findOne({
       where: { id },
       relations: [
