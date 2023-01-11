@@ -49,6 +49,9 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+## ERD
+![image](https://user-images.githubusercontent.com/97277365/211705035-9e7a00b0-78e8-4ef5-975c-471aa1020b1b.png)
+
 
 ## API 기능 구현
 
