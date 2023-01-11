@@ -122,6 +122,13 @@ $ npm run start:prod
 
 - findFinishedSurveys : 완료된 설문지들의 점수와 정보를 확인할 수 있습니다.
 
+## 깃 컨벤션
+
+feat: 새로운 기능 추가
+fix: 기능 수정
+refactor: 기능 변경없이 코드만 수정
+docs: 문서 수정
+
 ## Stay in touch
 
 - Author - [RunningLearner](https://github.com/RunningLearner)
