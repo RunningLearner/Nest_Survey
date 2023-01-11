@@ -33,7 +33,10 @@ export class AnswerResolver {
   }
 
   @Mutation(() => Answer)
-  removeAnswer(@Args('id', { type: () => Int }) id: number) {
-    return this.answerService.remove(id);
+  removeAnswer(
+    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int }) surveyId: number,
+  ) {
+    return this.answerService.remove(id, surveyId);
   }
 }

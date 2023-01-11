@@ -7,5 +7,8 @@ export class UpdateAnswerInput extends PartialType(CreateAnswerInput) {
   id: number;
 
   @Field()
+  surveyId: number;
+
+  @Field()
   choiceId: number;
 }

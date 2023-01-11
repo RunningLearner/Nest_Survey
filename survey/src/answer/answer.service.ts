@@ -20,7 +20,7 @@ export class AnswerService {
       id: createAnswerInput.surveyId,
     });
     if (survey.finished) {
-      return `이미 완료된 설문지 입니다.`;
+      throw new Error(`이미 완료된 설문지 입니다.`);
     }
     const answer = await this.answerRepository.create({
       choiceId: createAnswerInput.choiceId,
@@ -40,15 +40,27 @@ export class AnswerService {
   }
 
   async update(id: number, updateAnswerInput: UpdateAnswerInput) {
+    const survey = await this.surveyRepository.findOneBy({
+      id: updateAnswerInput.surveyId,
+    });
+    if (survey.finished) {
+      throw new Error(`이미 완료된 설문지 입니다.`);
+    }
     await this.answerRepository.update(id, updateAnswerInput);
     const choice = await this.answerRepository.findOneBy({ id });
     return choice;
   }
 
-  async remove(id: number) {
+  async remove(id: number, surveyId: number) {
     try {
+      const survey = await this.surveyRepository.findOneBy({
+        id: surveyId,
+      });
+      if (survey.finished) {
+        throw new Error(`이미 완료된 설문지 입니다.`);
+      }
       await this.answerRepository.delete(id);
-      return `Answer ${id} is deleted successfully`;
+      return `답변ID:${id}이 성공적으로 삭제되었습니다.`;
     } catch (error) {
       console.log(error);
     }

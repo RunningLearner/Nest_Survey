@@ -88,7 +88,7 @@ type Survey {
 input UpdateAnswerInput {
   choiceId: Float!
   id: Int!
-  surveyId: Float
+  surveyId: Float!
 }
 
 input UpdateChoiceInput {
