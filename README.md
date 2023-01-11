@@ -51,7 +51,8 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-
+- http://localhost:4000/graphql 로 접속!
+  
 ## ERD
 
 ![image](https://user-images.githubusercontent.com/97277365/211719243-ab5f4296-f01b-4c64-b126-edbaec11269b.png)
