@@ -36,6 +36,8 @@ $ npm install
 
 ## Running the app
 
+- 도커 실행 필수!
+
 ```bash
 # run postgres
 $ sudo docker-compose up -d
@@ -58,28 +60,67 @@ $ npm run start:prod
 
 ### 설문지 CRUD
 
-- 설문지를 조회, 생성, 수정, 삭제할 수 있습니다.
+### Query
+
+- findOneSurvey : 특정 설문의 정보를 조회합니다.
+- findAllSurveys : 모든 설문의 정보를 조회합니다.
+
+### Mutation
+
+- createSurvey : 설문을 생성합니다.
+- updateSurvey : 특정 설문의 정보를 수정합니다.
+- removeSurvey : 특정 설문을 삭제합니다.
 
 ### 문항 CRUD
 
-- 문항을 조회, 생성, 수정, 삭제할 수 있습니다.
+### Query
+
+- findOneQuestion : 특정 질문의 정보를 조회합니다.
+- findAllQuestions : 모든 질문의 정보를 조회합니다.
+
+### Mutation
+
+- createQuestion : 질문을 생성합니다.
+- updateQuestion : 특정 질문의 정보를 수정합니다.
+- removeQuestion : 특정 질문을 삭제합니다.
 
 ### 선택지 CRUD
 
-- 각 문항의 선택지를 조회, 생성, 수정, 삭제할 수 있습니다.
+### Query
+
+- findOneChoice : 특정 선택지의 정보를 조회합니다.
+- findAllChoices : 모든 선택지의 정보를 조회합니다.
+
+### Mutation
+
+- createChoice : 선택지를 생성합니다.
+- updateChoice : 특정 선택지를 수정합니다.
+- removeChoice : 특정 선택지를 삭제합니다.
 
 ### 답변 CRUD
 
-- 선택지에 답변을 조회, 생성, 수정, 삭제할 수 있습니다.
-- 완료된 설문지에 답변을 생성, 수정, 삭제하려는 경우 오류를 반환합니다.
+### Query
+
+- findOneAnswer : 특정 답변의 정보를 조회합니다.
+- findAllAnswers : 모든 답변의 정보를 조회합니다.
+
+### Mutation
+
+- updateAnswer : 답변을 생성합니다.
+- updateSurvey : 특정 답변을 수정합니다.
+- removeAnswer : 특정 답변을 삭제합니다.
 
 ### 설문지 완료
 
-- 설문지의 모든 선택지들의 상태를 변경하여 더 이상 답변을 조작할 수 없습니다.
+### Mutation
+
+- finishSurvey : 설문지의 상태를 완료로 변경합니다. 답변 정보를 조작할 수 없습니다.
 
 ### 완료된 설문지 확인
 
-- 완료된 설문지의 점수와 정보를 확인할 수 있습니다.
+### Query
+
+- findFinishedSurveys : 완료된 설문지들의 점수와 정보를 확인할 수 있습니다.
 
 ## Stay in touch
 
