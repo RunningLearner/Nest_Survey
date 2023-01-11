@@ -106,6 +106,7 @@ input UpdateQuestionInput {
 }
 
 input UpdateSurveyInput {
+  finished: Boolean
   id: ID!
-  title: String!
+  title: String
 }

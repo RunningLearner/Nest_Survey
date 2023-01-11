@@ -57,8 +57,16 @@ export class SurveyService {
   // 완료된 설문지 채점
   async correctSurvey(survey: Survey) {
     let totalScore = 0;
+    console.log('survey in correct', survey);
 
     for (const question of survey.questions) {
+      //선택한 답변의 수가 정해진 답변의 수보다 많다면 중단
+      if (
+        question.choices.filter((choice) => choice.answers.length !== 0)
+          .length !== 1
+      ) {
+        break;
+      }
       for (const choice of question.choices) {
         if (choice.answers.length > 0 && choice.number == question.answer) {
           totalScore += question.score;

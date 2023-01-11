@@ -6,6 +6,9 @@ export class UpdateSurveyInput extends PartialType(CreateSurveyInput) {
   @Field(() => ID)
   id: number;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   title: string;
+
+  @Field(() => Boolean, { nullable: true })
+  finished: boolean;
 }
