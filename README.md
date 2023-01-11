@@ -49,10 +49,10 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
 ## ERD
+
 ![image](https://user-images.githubusercontent.com/97277365/211719243-ab5f4296-f01b-4c64-b126-edbaec11269b.png)
-
-
 
 ## API 기능 구현
 
@@ -71,6 +71,7 @@ $ npm run start:prod
 ### 답변 CRUD
 
 - 선택지에 답변을 조회, 생성, 수정, 삭제할 수 있습니다.
+- 완료된 설문지에 답변을 생성, 수정, 삭제하려는 경우 오류를 반환합니다.
 
 ### 설문지 완료
 
