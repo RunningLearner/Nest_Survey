@@ -24,7 +24,8 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- 설문을 받을 수 있는 Nest백엔드 API입니다.
+- Graphql 방식을 사용하여 통신합니다.
 
 ## Installation
 
@@ -36,7 +37,7 @@ $ npm install
 ## Running the app
 
 ```bash
-# run postgres 
+# run postgres
 $ sudo docker-compose up -d
 
 # development
@@ -53,21 +54,32 @@ $ npm run start:prod
 
 ### 설문지 CRUD
 
+- 설문지를 조회, 생성, 수정, 삭제할 수 있습니다.
+
 ### 문항 CRUD
+
+- 문항을 조회, 생성, 수정, 삭제할 수 있습니다.
 
 ### 선택지 CRUD
 
+- 각 문항의 선택지를 조회, 생성, 수정, 삭제할 수 있습니다.
+
 ### 답변 CRUD
+
+- 선택지에 답변을 조회, 생성, 수정, 삭제할 수 있습니다.
 
 ### 설문지 완료
 
+- 설문지의 모든 선택지들의 상태를 변경하여 더 이상 답변을 조작할 수 없습니다.
+
 ### 완료된 설문지 확인
+
+- 완료된 설문지의 점수와 정보를 확인할 수 있습니다.
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [RunningLearner](https://github.com/RunningLearner)
+- Email - tkacnsdms@naver.com
 
 ## License
 
