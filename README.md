@@ -50,7 +50,8 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 ## ERD
-![image](https://user-images.githubusercontent.com/97277365/211705035-9e7a00b0-78e8-4ef5-975c-471aa1020b1b.png)
+![image](https://user-images.githubusercontent.com/97277365/211719243-ab5f4296-f01b-4c64-b126-edbaec11269b.png)
+
 
 
 ## API 기능 구현
